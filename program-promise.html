@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Program Promise</title>
+	</head>
+	<body>
+		<script>
+			const request = new Promise((resolve, reject) => {
+				console.log("sedang menunggu");
+				// progress
+				setTimeout(() => {
+					// reject
+					return reject("gagal mendapat data");
+
+					// fullfield
+					// return resolve("berhasil mendapat data");
+				}, 3000); // <= milliseconds;
+			});
+
+			request
+				.then((result) => {
+					console.log("message then callback:", result);
+				})
+				.catch((err) => console.log("message catch callback:", err))
+				.finally(() => {
+					console.log("selesai menunggu");
+				});
+		</script>
+	</body>
+</html>
